@@ -216,7 +216,8 @@ def compute_tau(I_matrix, threshold=1e-2):
     return taus
 
 
-# Alias for consistency with notebook naming
+# Deprecated alias for consistency with notebook naming.
+# Use `compute_tau` instead of `persistence_times` in new code.
 persistence_times = compute_tau
 
 
