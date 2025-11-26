@@ -50,8 +50,8 @@ def update_step_batch(X, c_arr, beta, theta_arr, rng):
     M, N = X.shape
     left = np.zeros_like(X)
     right = np.zeros_like(X)
-    left[:, 1:] = X[:, :-1] * c_arr[:N-1]
-    right[:, :-1] = X[:, 1:] * c_arr[:N-1]
+    left[:, 1:] = X[:, :-1] * c_arr
+    right[:, :-1] = X[:, 1:] * c_arr
     neighbor_sum = left + right
     bias = beta * (neighbor_sum - theta_arr[None, :])
     p1 = expit(bias)
@@ -131,7 +131,7 @@ def run_simulation_chunked(N, c_arr, beta, theta_arr, M, T, source_j,
             continue
 
         # Generate unique seed for this chunk from the master RNG
-        chunk_seed = main_rng.integers(0, 2**32 - 1)
+        chunk_seed = main_rng.integers(0, 2**31)
         chunk_rng = np.random.default_rng(chunk_seed)
 
         X = init_equilibrium_batch(N, current_chunk_size, chunk_rng)
