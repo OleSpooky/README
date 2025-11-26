@@ -12,6 +12,11 @@ This initiative seeks to:
 
 ## 📐 Core Components
 
+- `scalar_simulation.py`: Core simulation engine for information persistence modeling
+- `2025.11.29_RAW_Notebook.ipynb`: Interactive Jupyter notebook with visualization tools
+- `requirements.txt`: Python dependencies for running the simulation
+
+### Planned Components
 - `observer_profiles.json`: Reflective constructs representing vantage points across scales
 - `resonance_map/`: Spatial-temporal mapping of scalar behaviors across dimensions
 - `fractal_transform.py`: Engine for recursive modeling of environmental fluctuations
@@ -26,10 +31,51 @@ This project is informed by:
 
 ## 🚧 Development Status
 
-This repository is in its **early conceptual stage**. Key goals:
+This repository is in its **active development stage**. Key accomplishments:
+- ✅ Core simulation engine implemented (`scalar_simulation.py`)
+- ✅ Interactive Jupyter notebook with visualization (`2025.11.29_RAW_Notebook.ipynb`)
+- ✅ Vectorized batch simulation for efficient computation
+
+Key goals:
 - Formalize scalar data structures
 - Prototype environmental model renderings
 - Define recursive logic gates for system interactions
+
+## 🚀 Getting Started
+
+### Installation
+
+```bash
+pip install -r requirements.txt
+```
+
+### Running the Simulation
+
+```python
+from scalar_simulation import run_simulation_chunked, compute_mi_from_counts, compute_tau
+import numpy as np
+
+# Parameters
+N = 21  # Number of nodes
+M = 1000  # Ensemble size
+T = 60  # Time steps
+source_j = 10  # Source node index
+beta = 1.5  # Inverse temperature
+theta_arr = np.ones(N)
+
+# Create coupling array with pocket
+c_pocket = np.ones(N - 1)
+c_pocket[7:13] = 10.0  # Strong pocket coupling
+
+# Run simulation
+counts = run_simulation_chunked(N, c_pocket, beta, theta_arr, M, T, source_j)
+I = compute_mi_from_counts(counts, M)
+tau = compute_tau(I, threshold=1e-3)
+```
+
+### Interactive Notebook
+
+Open `2025.11.29_RAW_Notebook.ipynb` in Jupyter or Google Colab for interactive exploration with sliders.
 
 ## 🔭 Future Directions
 
