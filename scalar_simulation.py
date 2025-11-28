@@ -182,10 +182,10 @@ def compute_mi_from_counts(counts, M):
     # Compute MI only where both p and denom are > epsilon
     valid = (p_ax > epsilon) & (denom > epsilon)
     
-    # Compute ratio safely - use 1 where invalid to avoid division issues
-    ratio = np.divide(p_ax, denom, out=np.ones_like(p_ax), where=valid)
+    # Compute ratio and log term safely - invalid values remain zero
+    ratio = np.zeros_like(p_ax)
+    np.divide(p_ax, denom, out=ratio, where=valid)
     
-    # Compute log term safely - only compute log where valid
     log_term = np.zeros_like(p_ax)
     np.log2(ratio, out=log_term, where=valid)
     
