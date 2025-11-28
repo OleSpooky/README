@@ -144,8 +144,9 @@ def run_simulation_chunked(N, c_arr, beta, theta_arr, M, T, source_j,
                 mask_a = (A == a)
                 sub = X[mask_a]
                 if sub.size > 0:
-                    total_counts[t, :, a, 1] += np.sum(sub, axis=0)
-                    total_counts[t, :, a, 0] += sub.shape[0] - np.sum(sub, axis=0)
+                    ones = np.sum(sub, axis=0)
+                    total_counts[t, :, a, 1] += ones
+                    total_counts[t, :, a, 0] += sub.shape[0] - ones
 
             X = update_step_batch(X, c_arr, beta, theta_arr, chunk_rng)
             if continuous_source:
@@ -165,26 +166,32 @@ def compute_mi_from_counts(counts, M):
     Returns:
         Array of shape (T, N) containing mutual information values
     """
-    T, N, _, _ = counts.shape
-    I = np.zeros((T, N), dtype=float)
     epsilon = 1e-12
-
-    for t in range(T):
-        for i in range(N):
-            # p(a, x) joint probability table
-            p_ax = counts[t, i].astype(float) / M
-            p_a = p_ax.sum(axis=1)  # Marginal p(source)
-            p_x = p_ax.sum(axis=0)  # Marginal p(node state)
-
-            mi = 0.0
-            for a_val in (0, 1):
-                for x_val in (0, 1):
-                    p = p_ax[a_val, x_val]
-                    if p > epsilon:
-                        denom = p_a[a_val] * p_x[x_val]
-                        if denom > epsilon:
-                            mi += p * np.log2(p / denom)
-            I[t, i] = mi
+    
+    # Vectorized computation: p_ax has shape (T, N, 2, 2)
+    p_ax = counts.astype(float) / M
+    
+    # Marginals: p_a has shape (T, N, 2), p_x has shape (T, N, 2)
+    p_a = p_ax.sum(axis=3)  # Sum over x
+    p_x = p_ax.sum(axis=2)  # Sum over a
+    
+    # Compute denominator p(a) * p(x) for all combinations
+    # Need shape (T, N, 2, 2) where [t, n, a, x] = p_a[t,n,a] * p_x[t,n,x]
+    denom = p_a[:, :, :, np.newaxis] * p_x[:, :, np.newaxis, :]
+    
+    # Compute MI only where both p and denom are > epsilon
+    valid = (p_ax > epsilon) & (denom > epsilon)
+    
+    # Compute ratio and log term safely - invalid values remain zero
+    ratio = np.zeros_like(p_ax)
+    np.divide(p_ax, denom, out=ratio, where=valid)
+    
+    log_term = np.zeros_like(p_ax)
+    np.log2(ratio, out=log_term, where=valid)
+    
+    # MI = sum over a, x of p(a,x) * log2(p(a,x) / (p(a) * p(x)))
+    I = np.sum(p_ax * log_term, axis=(2, 3))
+    
     return I
 
 
@@ -206,13 +213,21 @@ def compute_tau(I_matrix, threshold=1e-2):
         Array of length N containing persistence times
     """
     T, N = I_matrix.shape
-    taus = np.zeros(N, dtype=int)
-    for i in range(N):
-        decayed = np.where(I_matrix[:, i] < threshold)[0]
-        if len(decayed) > 0:
-            taus[i] = decayed[0]
-        else:
-            taus[i] = T  # Never decayed
+    
+    # Create boolean mask where MI is below threshold
+    below_threshold = I_matrix < threshold
+    
+    # Find first occurrence of True in each column
+    # argmax returns 0 if no True exists, so we need to handle that case
+    first_decay = np.argmax(below_threshold, axis=0)
+    
+    # Check if decay actually occurred (argmax returns 0 both when first element
+    # is True and when no element is True)
+    never_decayed = ~np.any(below_threshold, axis=0)
+    
+    # Set tau to T for nodes that never decayed
+    taus = np.where(never_decayed, T, first_decay)
+    
     return taus
 
 
