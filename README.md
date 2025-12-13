@@ -34,6 +34,7 @@ This repository is in its **active development stage**. Key accomplishments:
 - ✅ Core simulation engine implemented (`scalar_simulation.py`)
 - ✅ Interactive Jupyter notebook with visualization (`2025.11.29_RAW_Notebook.ipynb`)
 - ✅ Vectorized batch simulation for efficient computation
+- ✅ **Scalar modeling actively progressing in Google Colab** with interactive parameter exploration
 
 Key goals:
 - Formalize scalar data structures
@@ -75,6 +76,11 @@ tau = compute_tau(I, threshold=1e-3)
 ### Interactive Notebook
 
 Open `2025.11.29_RAW_Notebook.ipynb` in Jupyter or Google Colab for interactive exploration with sliders.
+
+**Scalar modeling is actively being developed in Google Colab**, enabling:
+- Real-time parameter tuning and visualization
+- Interactive exploration of coupling strengths, temperature parameters, and network topologies
+- Dynamic visualization of information persistence across node networks
 
 ## 🔭 Future Directions
 
