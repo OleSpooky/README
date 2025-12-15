@@ -231,11 +231,6 @@ def compute_tau(I_matrix, threshold=1e-2):
     return taus
 
 
-# Deprecated alias for consistency with notebook naming.
-# Use `compute_tau` instead of `persistence_times` in new code.
-persistence_times = compute_tau
-
-
 def create_pocket_coupling(N, pocket_center, pocket_half_width, pocket_strength, baseline=1.0):
     """
     Create a coupling array with a localized "pocket" of stronger coupling.
