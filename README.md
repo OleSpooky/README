@@ -5,7 +5,7 @@ Welcome to a multidimensional exploration of scalar frameworks, quantum mechanic
 ## 🧭 Project Overview
 
 This initiative seeks to:
-- Reconstruct the **Cojo-Jalama Ranch monitoring network** in virtual form
+- Build and model **information pockets** for testing information retention
 - Develop a **scalar modeling framework** integrating quantum, environmental, and human cycles
 - Synthesize **transforms, fractals, and recursive structures** into cohesive modeling tools
 
