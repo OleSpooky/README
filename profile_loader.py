@@ -13,6 +13,10 @@ from typing import Dict, List, Any, Optional
 import scalar_simulation as sim
 
 
+# Default random seed for reproducible experiments
+DEFAULT_RANDOM_SEED = 42
+
+
 def load_profiles(profile_path: str = "observer_profiles.json") -> Dict[str, Any]:
     """
     Load observer profiles from JSON file.
@@ -71,7 +75,14 @@ def list_profiles(category: Optional[str] = None,
     data = load_profiles(profile_path)
     profiles = data['profiles']
     
+    # If category filter is provided, validate it exists
     if category:
+        available_categories = set(p.get('category') for p in profiles)
+        if category not in available_categories:
+            raise ValueError(
+                f"Category '{category}' not found. "
+                f"Available categories: {sorted(available_categories)}"
+            )
         profiles = [p for p in profiles if p.get('category') == category]
     
     return [p['name'] for p in profiles]
@@ -194,7 +205,7 @@ def run_profile(profile_name: str,
     continuous_source = sim_params.get('continuous_source', False)
     
     # Use provided seed or default
-    seed = master_seed if master_seed is not None else 42
+    seed = master_seed if master_seed is not None else DEFAULT_RANDOM_SEED
     
     if verbose:
         print(f"Network: N={N}, source={source_j}")
