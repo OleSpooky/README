@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Observer Profiles for Scalar Modeling Simulation",
   "description": "Configuration profiles representing different vantage points and experimental perspectives for studying information persistence in networked systems",
   "version": "1.0.0",

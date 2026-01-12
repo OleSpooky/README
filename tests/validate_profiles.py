@@ -18,6 +18,11 @@ from pathlib import Path
 from profile_loader import load_profiles, run_profile
 
 
+# Numerical tolerance for mutual information values
+# Small negative values can occur due to floating-point precision in probability calculations
+MI_NEGATIVE_TOLERANCE = -0.01
+
+
 def validate_profile_structure(profile):
     """Validate that a profile has all required fields."""
     required_fields = ['name', 'description', 'category', 'parameters', 'expected_behavior', 'use_cases']
@@ -82,13 +87,10 @@ def validate_profile_values(profile):
 def validate_profile_execution(profile_name, quick_test=True):
     """Validate that a profile can be executed successfully."""
     try:
-        # Run with reduced parameters for faster testing if requested
-        if quick_test:
-            # We can't easily override parameters, so just run as-is
-            # but we'll use a small random seed
-            result = run_profile(profile_name, master_seed=1, verbose=False)
-        else:
-            result = run_profile(profile_name, verbose=False)
+        # Run with consistent random seed for reproducibility
+        # Note: Profile parameters (M, T, N) are defined in the profile itself
+        # and cannot be easily overridden without modifying the profile
+        result = run_profile(profile_name, master_seed=1, verbose=False)
         
         # Check that results have expected structure
         required_keys = ['counts', 'I', 'tau', 'params']
@@ -117,7 +119,7 @@ def validate_profile_execution(profile_name, quick_test=True):
         if not np.all(np.isfinite(I)):
             return False, "I contains non-finite values"
         
-        if not np.all(I >= -0.01):  # Small negative values OK due to numerical precision
+        if not np.all(I >= MI_NEGATIVE_TOLERANCE):
             return False, "I contains significantly negative values"
         
         return True, "OK"
