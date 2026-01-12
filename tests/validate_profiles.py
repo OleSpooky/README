@@ -85,11 +85,17 @@ def validate_profile_values(profile):
 
 
 def validate_profile_execution(profile_name, quick_test=True):
-    """Validate that a profile can be executed successfully."""
+    """Validate that a profile can be executed successfully.
+    
+    Args:
+        profile_name: Name of the profile to validate
+        quick_test: Currently unused; kept for API compatibility
+                   Profile parameters are immutable by design to ensure
+                   standardized configurations. Future enhancement could
+                   support parameter overrides via a separate testing API.
+    """
     try:
         # Run with consistent random seed for reproducibility
-        # Note: Profile parameters (M, T, N) are defined in the profile itself
-        # and cannot be easily overridden without modifying the profile
         result = run_profile(profile_name, master_seed=1, verbose=False)
         
         # Check that results have expected structure

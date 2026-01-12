@@ -14,6 +14,8 @@ import scalar_simulation as sim
 
 
 # Default random seed for reproducible experiments
+# Using 42 as a conventional choice (popularized by "The Hitchhiker's Guide to the Galaxy")
+# This ensures consistent results across runs when no specific seed is provided
 DEFAULT_RANDOM_SEED = 42
 
 
