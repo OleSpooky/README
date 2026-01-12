@@ -13,10 +13,11 @@ This initiative seeks to:
 
 - `scalar_simulation.py`: Core simulation engine for information persistence modeling
 - `2025.11.29_RAW_Notebook.ipynb`: Interactive Jupyter notebook with visualization tools
+- `observer_profiles.json`: **NEW!** Standardized configuration profiles representing different observer vantage points and experimental perspectives
+- `profile_loader.py`: Utility module for loading and executing observer profiles
 - `requirements.txt`: Python dependencies for running the simulation
 
 ### Planned Components
-- `observer_profiles.json`: Reflective constructs representing vantage points across scales
 - `resonance_map/`: Spatial-temporal mapping of scalar behaviors across dimensions
 - `fractal_transform.py`: Engine for recursive modeling of environmental fluctuations
 - `simulation_core/`: Modular code representing dynamic virtual terrain features
@@ -72,6 +73,42 @@ counts = run_simulation_chunked(N, c_pocket, beta, theta_arr, M, T, source_j)
 I = compute_mi_from_counts(counts, M)
 tau = compute_tau(I, threshold=1e-3)
 ```
+
+### Using Observer Profiles
+
+Observer profiles provide standardized experimental configurations for reproducible research:
+
+```python
+from profile_loader import run_profile, list_profiles, compare_profiles
+
+# List all available profiles
+profiles = list_profiles()
+print(f"Available profiles: {profiles}")
+
+# Run a single profile
+result = run_profile("single_pocket_strong", verbose=True)
+print(f"Mean persistence time: {result['tau'].mean()}")
+
+# Compare multiple perspectives
+results = compare_profiles([
+    "baseline_homogeneous",
+    "single_pocket_weak", 
+    "single_pocket_strong"
+])
+
+# Access results for analysis
+for name, data in results.items():
+    print(f"{name}: mean tau = {data['tau'].mean():.2f}")
+```
+
+**Available Profile Categories:**
+- `baseline`: Homogeneous systems for control experiments
+- `single_pocket` / `multi_pocket`: Localized information retention structures
+- `thermodynamic`: Temperature/noise regime variations
+- `spatial`: Edge effects and asymmetric propagation
+- `temporal`: Continuous driving and steady-state dynamics
+- `scale`: Large-system behavior and hierarchical structures
+- `gradient`: Smooth spatial transitions
 
 ### Interactive Notebook
 
