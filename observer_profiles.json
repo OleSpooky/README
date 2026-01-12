@@ -1,0 +1,400 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Observer Profiles for Scalar Modeling Simulation",
+  "description": "Configuration profiles representing different vantage points and experimental perspectives for studying information persistence in networked systems",
+  "version": "1.0.0",
+  "profiles": [
+    {
+      "name": "baseline_homogeneous",
+      "description": "Baseline configuration with uniform coupling across all nodes. Represents an observer viewing a homogeneous information landscape with no structural pockets.",
+      "category": "baseline",
+      "parameters": {
+        "network": {
+          "N": 21,
+          "source_j": 10,
+          "topology": "linear_chain"
+        },
+        "coupling": {
+          "type": "uniform",
+          "baseline": 1.0,
+          "pockets": []
+        },
+        "thermodynamics": {
+          "beta": 1.5,
+          "theta": 1.0,
+          "theta_type": "uniform"
+        },
+        "simulation": {
+          "M": 1000,
+          "T": 60,
+          "threshold": 0.001,
+          "continuous_source": false
+        }
+      },
+      "expected_behavior": "Information decays uniformly from the source with no localized persistence enhancement",
+      "use_cases": ["control_experiment", "baseline_comparison", "teaching_example"]
+    },
+    {
+      "name": "single_pocket_weak",
+      "description": "Observer focused on a single weak information pocket near the center. Models minimal structural intervention in information flow.",
+      "category": "single_pocket",
+      "parameters": {
+        "network": {
+          "N": 21,
+          "source_j": 10,
+          "topology": "linear_chain"
+        },
+        "coupling": {
+          "type": "localized_pocket",
+          "baseline": 1.0,
+          "pockets": [
+            {
+              "center": 10,
+              "half_width": 3,
+              "strength": 3.0,
+              "description": "Weak central pocket around source"
+            }
+          ]
+        },
+        "thermodynamics": {
+          "beta": 1.5,
+          "theta": 1.0,
+          "theta_type": "uniform"
+        },
+        "simulation": {
+          "M": 1000,
+          "T": 60,
+          "threshold": 0.001,
+          "continuous_source": false
+        }
+      },
+      "expected_behavior": "Modest information persistence enhancement within pocket region",
+      "use_cases": ["pocket_discovery", "weak_coupling_effects", "threshold_studies"]
+    },
+    {
+      "name": "single_pocket_strong",
+      "description": "Observer examining a strong information pocket. Represents environments with pronounced structural features supporting information retention.",
+      "category": "single_pocket",
+      "parameters": {
+        "network": {
+          "N": 21,
+          "source_j": 10,
+          "topology": "linear_chain"
+        },
+        "coupling": {
+          "type": "localized_pocket",
+          "baseline": 1.0,
+          "pockets": [
+            {
+              "center": 10,
+              "half_width": 3,
+              "strength": 10.0,
+              "description": "Strong central pocket around source"
+            }
+          ]
+        },
+        "thermodynamics": {
+          "beta": 1.5,
+          "theta": 1.0,
+          "theta_type": "uniform"
+        },
+        "simulation": {
+          "M": 1000,
+          "T": 60,
+          "threshold": 0.001,
+          "continuous_source": false
+        }
+      },
+      "expected_behavior": "Significant information persistence within pocket with sharp boundary effects",
+      "use_cases": ["strong_pocket_analysis", "boundary_detection", "contrast_studies"]
+    },
+    {
+      "name": "dual_pocket_symmetric",
+      "description": "Observer perspective spanning two symmetric information pockets. Models systems with multiple retention sites or competing memory structures.",
+      "category": "multi_pocket",
+      "parameters": {
+        "network": {
+          "N": 41,
+          "source_j": 20,
+          "topology": "linear_chain"
+        },
+        "coupling": {
+          "type": "multi_pocket",
+          "baseline": 1.0,
+          "pockets": [
+            {
+              "center": 10,
+              "half_width": 3,
+              "strength": 7.0,
+              "description": "Left pocket"
+            },
+            {
+              "center": 30,
+              "half_width": 3,
+              "strength": 7.0,
+              "description": "Right pocket"
+            }
+          ]
+        },
+        "thermodynamics": {
+          "beta": 2.0,
+          "theta": 1.0,
+          "theta_type": "uniform"
+        },
+        "simulation": {
+          "M": 2000,
+          "T": 80,
+          "threshold": 0.001,
+          "continuous_source": false
+        }
+      },
+      "expected_behavior": "Information spreads bidirectionally with enhanced persistence in both pockets",
+      "use_cases": ["spatial_symmetry", "multi_scale_retention", "interference_patterns"]
+    },
+    {
+      "name": "high_temperature_observer",
+      "description": "Observer in high-noise regime (low beta). Represents stochastic environments where thermal fluctuations dominate.",
+      "category": "thermodynamic",
+      "parameters": {
+        "network": {
+          "N": 21,
+          "source_j": 10,
+          "topology": "linear_chain"
+        },
+        "coupling": {
+          "type": "localized_pocket",
+          "baseline": 1.0,
+          "pockets": [
+            {
+              "center": 10,
+              "half_width": 3,
+              "strength": 10.0,
+              "description": "Strong pocket tested in high-noise regime"
+            }
+          ]
+        },
+        "thermodynamics": {
+          "beta": 0.5,
+          "theta": 1.0,
+          "theta_type": "uniform"
+        },
+        "simulation": {
+          "M": 1000,
+          "T": 60,
+          "threshold": 0.001,
+          "continuous_source": false
+        }
+      },
+      "expected_behavior": "Rapid information decay even in strong pocket due to high noise",
+      "use_cases": ["noise_robustness", "temperature_scaling", "thermal_limits"]
+    },
+    {
+      "name": "low_temperature_observer",
+      "description": "Observer in low-noise regime (high beta). Represents deterministic or near-deterministic information propagation.",
+      "category": "thermodynamic",
+      "parameters": {
+        "network": {
+          "N": 21,
+          "source_j": 10,
+          "topology": "linear_chain"
+        },
+        "coupling": {
+          "type": "localized_pocket",
+          "baseline": 1.0,
+          "pockets": [
+            {
+              "center": 10,
+              "half_width": 3,
+              "strength": 5.0,
+              "description": "Moderate pocket in low-noise regime"
+            }
+          ]
+        },
+        "thermodynamics": {
+          "beta": 5.0,
+          "theta": 1.0,
+          "theta_type": "uniform"
+        },
+        "simulation": {
+          "M": 1000,
+          "T": 60,
+          "threshold": 0.001,
+          "continuous_source": false
+        }
+      },
+      "expected_behavior": "Highly persistent information with sharp spatial transitions",
+      "use_cases": ["deterministic_limit", "phase_transitions", "crystallization_analogs"]
+    },
+    {
+      "name": "edge_source_observer",
+      "description": "Observer perspective from network boundary. Studies asymmetric information propagation from edge sources.",
+      "category": "spatial",
+      "parameters": {
+        "network": {
+          "N": 21,
+          "source_j": 2,
+          "topology": "linear_chain"
+        },
+        "coupling": {
+          "type": "localized_pocket",
+          "baseline": 1.0,
+          "pockets": [
+            {
+              "center": 10,
+              "half_width": 3,
+              "strength": 8.0,
+              "description": "Off-center pocket relative to edge source"
+            }
+          ]
+        },
+        "thermodynamics": {
+          "beta": 1.5,
+          "theta": 1.0,
+          "theta_type": "uniform"
+        },
+        "simulation": {
+          "M": 1000,
+          "T": 60,
+          "threshold": 0.001,
+          "continuous_source": false
+        }
+      },
+      "expected_behavior": "Asymmetric information flow with directional bias toward interior",
+      "use_cases": ["boundary_effects", "asymmetric_propagation", "edge_initialization"]
+    },
+    {
+      "name": "continuous_source_observer",
+      "description": "Observer tracking system with persistent information injection. Models scenarios with sustained external driving.",
+      "category": "temporal",
+      "parameters": {
+        "network": {
+          "N": 21,
+          "source_j": 10,
+          "topology": "linear_chain"
+        },
+        "coupling": {
+          "type": "localized_pocket",
+          "baseline": 1.0,
+          "pockets": [
+            {
+              "center": 10,
+              "half_width": 3,
+              "strength": 6.0,
+              "description": "Pocket with continuous source clamping"
+            }
+          ]
+        },
+        "thermodynamics": {
+          "beta": 1.5,
+          "theta": 1.0,
+          "theta_type": "uniform"
+        },
+        "simulation": {
+          "M": 1000,
+          "T": 60,
+          "threshold": 0.001,
+          "continuous_source": true
+        }
+      },
+      "expected_behavior": "Sustained information propagation with steady-state spatial profile",
+      "use_cases": ["steady_state_analysis", "continuous_driving", "non_equilibrium_flow"]
+    },
+    {
+      "name": "large_scale_observer",
+      "description": "Observer examining large-scale system dynamics. For studying long-range correlations and scaling behavior.",
+      "category": "scale",
+      "parameters": {
+        "network": {
+          "N": 101,
+          "source_j": 50,
+          "topology": "linear_chain"
+        },
+        "coupling": {
+          "type": "multi_pocket",
+          "baseline": 1.0,
+          "pockets": [
+            {
+              "center": 25,
+              "half_width": 5,
+              "strength": 8.0,
+              "description": "Left large-scale pocket"
+            },
+            {
+              "center": 50,
+              "half_width": 5,
+              "strength": 12.0,
+              "description": "Central strong pocket"
+            },
+            {
+              "center": 75,
+              "half_width": 5,
+              "strength": 8.0,
+              "description": "Right large-scale pocket"
+            }
+          ]
+        },
+        "thermodynamics": {
+          "beta": 2.0,
+          "theta": 1.0,
+          "theta_type": "uniform"
+        },
+        "simulation": {
+          "M": 5000,
+          "T": 100,
+          "threshold": 0.0005,
+          "continuous_source": false
+        }
+      },
+      "expected_behavior": "Hierarchical information landscape with multiple retention scales",
+      "use_cases": ["scaling_laws", "large_system_behavior", "multi_scale_analysis"]
+    },
+    {
+      "name": "gradient_observer",
+      "description": "Observer studying spatially graded coupling landscapes. Models systems with smooth structural transitions.",
+      "category": "gradient",
+      "parameters": {
+        "network": {
+          "N": 41,
+          "source_j": 20,
+          "topology": "linear_chain"
+        },
+        "coupling": {
+          "type": "gradient",
+          "baseline": 1.0,
+          "gradient_function": "linear",
+          "gradient_params": {
+            "start_value": 1.0,
+            "end_value": 10.0,
+            "center": 20,
+            "spread": 10,
+            "description": "Linear gradient from weak to strong coupling"
+          }
+        },
+        "thermodynamics": {
+          "beta": 1.8,
+          "theta": 1.0,
+          "theta_type": "uniform"
+        },
+        "simulation": {
+          "M": 2000,
+          "T": 80,
+          "threshold": 0.001,
+          "continuous_source": false
+        }
+      },
+      "expected_behavior": "Smooth spatial variation in information persistence without sharp boundaries",
+      "use_cases": ["gradient_systems", "smooth_transitions", "environmental_gradients"]
+    }
+  ],
+  "metadata": {
+    "author": "Scalar Modeling Project",
+    "created": "2026-01-12",
+    "purpose": "Provide standardized observer configurations for reproducible scalar modeling experiments",
+    "notes": [
+      "All profiles use the scalar_simulation.py engine",
+      "Profiles can be loaded and executed programmatically",
+      "Custom profiles can be created following the same schema",
+      "The 'category' field helps organize profiles by research focus"
+    ]
+  }
+}
