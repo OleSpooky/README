@@ -1,6 +1,6 @@
 # Scalar Modeling and Environmental Simulation
 
-Welcome to a multidimensional exploration of scalar frameworks, quantum mechanics, environmental data integration, and recursive systems. This repository is the foundation for a living simulation project that reimagines environmental monitoring through unified scalar modeling.
+Welcome to a multidimensional exploration of scalar frameworks, quantum mechanics, environmental data integration, and recursive systems. This repository is the foundation for a living simulation project that reimagines environmental monitoring through unified scalar modeling, with research conducted at Cojo Jalama Ranch.
 
 ## 🧭 Project Overview
 
@@ -8,6 +8,10 @@ This initiative seeks to:
 - Build and model **information pockets** for testing information retention
 - Develop a **scalar modeling framework** integrating quantum, environmental, and human cycles
 - Synthesize **transforms, fractals, and recursive structures** into cohesive modeling tools
+
+## 🔬 Research Approach and Frameworks
+
+Essentially I've been running a series of Colab simulations regarding persistence and memory, developed a few findings, and have been working on, trying to, treat a direct closed simulation meta like self contained system regarding my work experience with the data collection, projects, and findings, directly linking physics geometry and language systems of persistence, new frameworks such the CEO and SHR as a digital twin for cosmic 202 stepped universal ladder. And an ethical shield, proposal for technological advancement in open global digital assets.
 
 ## 📐 Core Components
 
