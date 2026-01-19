@@ -1,21 +1,22 @@
+![Python Version](https://img.shields.io/badge/python-3.10%2B-blue?style=flat&logo=python)
+![Status](https://img.shields.io/badge/status-active-success?style=flat)
+![License](https://img.shields.io/badge/license-MIT-green?style=flat)
+
 # OleSpooky Repository
 
 Welcome to my personal repository for theoretical physics simulations, mathematical modeling, and creative coding experiments.
 
-## 📂 Project Index
+## 🔬 Computational Physics & Logic
 
-### ⚛️ Theoretical Physics & Geometry Simulations
-| Project / Notebook | Description | Status |
+| Module | Description | Key Concepts |
 | :--- | :--- | :--- |
-| **4D Hyper-Sovereignty Kernel** | Simulation exploring 4D geometry and sovereignty logic. | *Active* |
-| **Vectorized 1D Ising-Like Models** | Studies on persistence and geometry updates using Ising model variants. | *Active* |
-| **3D Fresnel Pocket & Hyper-Bubbles** | Implementations of complex 3D structures and boundary interactions. | *Development* |
+| **Hyper-Sovereignty Kernel** | 4D geometric simulation exploring sovereign logic states. | `4D Geometry`, `Topology`, `Logic Gates` |
+| **Ising Model Variants** | Vectorized 1D models analyzing persistence and geometric updates. | `Statistical Mechanics`, `Vectorization` |
+| **Fresnel Pocket** | 3D structure implementation focusing on boundary interactions. | `3D Rendering`, `Boundary Conditions` |
 
-### 🧠 Core Logic & Unified Models
-* **SovereignNode Class**: The foundational class for the Unified Operator model, handling node logic and interaction rules.
+## ⚙️ Core Architecture
 
-### 🛠️ Maintenance & Testing
-* `tests/validate_profiles.py`: Script for validating profile data structures (includes f-string formatting logic).
+* **`SovereignNode`**: The fundamental object class representing a discrete unit of logic/sovereignty in the simulation. Handles state updates and neighbor interactions.
 
 ---
 
