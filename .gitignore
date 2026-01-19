@@ -29,6 +29,7 @@ env/
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints
+*.ipynb.backup
 
 # IDE settings
 .idea/
