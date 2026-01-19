@@ -11,7 +11,7 @@ This initiative seeks to:
 
 ## 🔬 Research Approach and Frameworks
 
-Essentially I've been running a series of Colab simulations regarding persistence and memory, developed a few findings, and have been working on, trying to, treat a direct closed simulation meta like self contained system regarding my work experience with the data collection, projects, and findings, directly linking physics geometry and language systems of persistence, new frameworks such the CEO and SHR as a digital twin for cosmic 202 stepped universal ladder. And an ethical shield, proposal for technological advancement in open global digital assets.
+Essentially I've been running a series of Colab simulations regarding persistence and memory, developed a few findings, and have been working on, trying to, treat a direct closed simulation meta like self contained system regarding my work experience with the data collection, projects, and findings, directly linking physics geometry and language systems of persistence, new frameworks such as the CEO and SHR as a digital twin for cosmic 202 stepped universal ladder. And an ethical shield, proposal for technological advancement in open global digital assets.
 
 ## 📐 Core Components
 
