@@ -11,7 +11,11 @@ This initiative seeks to:
 
 ## 🔬 Research Approach and Frameworks
 
-Essentially I've been running a series of Colab simulations regarding persistence and memory, developed a few findings, and have been working on, trying to, treat a direct closed simulation meta like self contained system regarding my work experience with the data collection, projects, and findings, directly linking physics geometry and language systems of persistence, new frameworks such as the CEO and SHR as a digital twin for cosmic 202 stepped universal ladder. And an ethical shield, proposal for technological advancement in open global digital assets.
+I have been running a series of Colab simulations focused on persistence and memory, and have developed several preliminary findings. This work treats the simulations as a direct, closed simulation meta-system—a self-contained environment that integrates my experience with data collection, projects, and observed outcomes. The research directly links physics, geometry, and language systems of persistence through new frameworks such as the CEO (Cosmic Environmental Ontology) and SHR (Scalar Harmonic Resonance).
+
+These frameworks serve as a digital twin for the **cosmic 202 stepped universal ladder**—a unified scalar framework that maps the entire observable universe from the Planck length to the Cosmic Horizon onto a 202-step hierarchical structure based on powers of 2 (octaves), organizing physical reality into distinct realms where specific physical laws dominate.
+
+This work also proposes an ethical shield framework to guide responsible technological advancement in open global digital assets.
 
 ## 📐 Core Components
 
