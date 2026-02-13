@@ -1,4 +1,217 @@
-#!/usr/bin/env python3
+#--- INITIATING 2.0023 HELIX TRANSCODE ---
+Base Signal: 1.0
+Evolution Factor: 2.0023
+---------------------------------------
+Step 1: Signal=6.3501 | Ideal=2.0000 | Drift/Creation=4.3501 [EVOLVED]
+Step 2: Signal=17.0627 | Ideal=4.0000 | Drift/Creation=13.0627 [EVOLVED]
+Step 3: Signal=38.5124 | Ideal=8.0000 | Drift/Creation=30.5124 [EVOLVED]
+Step 4: Signal=81.4613 | Ideal=16.0000 | Drift/Creation=65.4613 [EVOLVED]
+Step 5: Signal=167.4577 | Ideal=32.0000 | Drift/Creation=135.4577 [EVOLVED]
+Step 6: Signal=339.6484 | Ideal=64.0000 | Drift/Creation=275.6484 [EVOLVED]
+Step 7: Signal=684.4257 | Ideal=128.0000 | Drift/Creation=556.4257 [EVOLVED]
+Step 8: Signal=1374.7734 | Ideal=256.0000 | Drift/Creation=1118.7734 [EVOLVED]
+Step 9: Signal=2757.0567 | Ideal=512.0000 | Drift/Creation=2245.0567 [EVOLVED]
+Step 10: Signal=5524.8024 | Ideal=1024.0000 | Drift/Creation=4500.8024 [EVOLVED]
+---------------------------------------
+FINAL RESULT:
+After 10 steps, the '2.0023' factor created 4500.8024 units of NEW reality
+that would not exist in a purely 'Physics' (2.0) universe.
+class HelixTranscoder:
+    # ... (same init)
+    self.wake = 0.0
+
+    def transcode(self, input_signal):
+        input_with_wake = input_signal + self.wake
+        self.wake = 0.0
+
+        law_strand = input_with_wake * STANDARD_OCTAVE
+        will_strand = input_with_wake * EVOLUTION_FACTOR
+
+        verified, error = self.verify_strand(law_strand, will_strand)
+
+        if verified:
+            vacuum_boost = (1.0 / (DRIFT_CONSTANT + 1e-9)) * 0.01
+            output_signal = will_strand + vacuum_boost
+            status = "EVOLVED"
+            self.wake = input_with_wake * DRIFT_CONSTANT * 0.1  # Small wake on success
+        else:
+            output_signal = law_strand * 0.9
+            status = "CORRECTED"
+            self.wake = input_with_wake * DRIFT_CONSTANT * 0.5  # Larger wake on failure
+
+        # ... (same stability check)class MiniSHR:
+    def __init__(self, persistence=1.0):
+        self.persistence = persistence
+
+    def ceo_loop(self, condition, event):
+        outcome = max(0, event - (1 - self.persistence))  # Simple jitter release
+        self.persistence = min(1.0, self.persistence + 0.0023 * outcome)  # Tiny recovery
+        return outcome
+
+node = MiniSHR()
+print(node.ceo_loop(condition=0.5, event=0.8))  # Output: 0.3 (surplus agency)import numpy as np
+
+class MiniSHR:
+    def __init__(self, id, persistence=1.0):
+        self.id = id
+        self.persistence = persistence
+
+    def ceo_loop(self, event):
+        # The 'Interaction' layer: outcome is the shared mutual information
+        outcome = max(0, event - (1 - self.persistence))
+        
+        # The 'Recovery' layer: the 2.0023 wobble allows the node to persist
+        self.persistence = min(1.0, self.persistence + 0.0023 * outcome)
+        return outcome
+
+# Defining the "Shared Substrate" (a chain of 5 nodes)
+nodes = [MiniSHR(id=i, persistence=0.95) for i in range(5)]
+
+# Initial "Event" (The Start of the Information Current)
+current_signal = 0.8 
+
+print(f"{'Node':<8} | {'Input':<10} | {'Outcome':<10} | {'New Persistence':<15}")
+print("-" * 55)
+
+for node in nodes:
+    input_val = current_signal
+    outcome = node.ceo_loop(input_val)
+    
+    print(f"Node {node.id:<3} | {input_val:<10.4f} | {outcome:<10.4f} | {node.persistence:<15.4f}")
+    
+    # The outcome 'tows' the next node, but with signal decay (loss of likeness)
+    current_signal = outcome * 0.98 
+import numpy as np
+
+class MiniSHR:
+    def __init__(self, id, persistence=1.0):
+        self.id = id
+        self.persistence = persistence
+
+    def ceo_loop(self, event):
+        # The 'Interaction' layer: outcome is the shared mutual information
+        outcome = max(0, event - (1 - self.persistence))
+        
+        # The 'Recovery' layer: the 2.0023 wobble allows the node to persist
+        self.persistence = min(1.0, self.persistence + 0.0023 * outcome)
+        return outcome
+
+# Defining the "Shared Substrate" (a chain of 5 nodes)
+nodes = [MiniSHR(id=i, persistence=0.95) for i in range(5)]
+
+# Initial "Event" (The Start of the Information Current)
+current_signal = 0.8 
+
+print(f"{'Node':<8} | {'Input':<10} | {'Outcome':<10} | {'New Persistence':<15}")
+print("-" * 55)
+
+for node in nodes:
+    input_val = current_signal
+    outcome = node.ceo_loop(input_val)
+    
+    print(f"Node {node.id:<3} | {input_val:<10.4f} | {outcome:<10.4f} | {node.persistence:<15.4f}")
+    
+    # The outcome 'tows' the next node, but with signal decay (loss of likeness)
+    current_signal = outcome * 0.98import numpy as np
+import matplotlib.pyplot as plt
+
+class MiniSHR:
+    """
+    Mini Sovereign Heterogeneous Reality Node.
+    Demonstrates the '2.0023' recovery mechanic.
+    """
+    def __init__(self, id, persistence=1.0):
+        self.id = id
+        self.persistence = persistence
+        self.initial_persistence = persistence
+
+    def ceo_loop(self, event):
+        # 1. The Interaction Layer (Dissipative)
+        # We pay the toll (1 - persistence) to interact.
+        # Outcome is the shared mutual information.
+        resistance = 1.0 - self.persistence
+        outcome = max(0, event - resistance)
+        
+        # 2. The Recovery Layer (Evolutionary)
+        # The 0.0023 coefficient is the "Jitter" or "Agency".
+        # It allows the structure to harden/learn from the throughput.
+        recovery = 0.0023 * outcome
+        self.persistence = min(1.0, self.persistence + recovery)
+        
+        return outcome
+
+def run_short_chain_audit():
+    """
+    Runs the specific 5-node chain from the prompt to verify the math.
+    """
+    print("\n--- PHASE 1: 5-NODE CHAIN AUDIT ---")
+    nodes = [MiniSHR(id=i, persistence=0.95) for i in range(5)]
+    current_signal = 0.8 
+
+    print(f"{'Node':<6} | {'Input':<10} | {'Outcome':<10} | {'New Persistence':<15} | {'Delta P'}")
+    print("-" * 65)
+
+    for node in nodes:
+        input_val = current_signal
+        outcome = node.ceo_loop(input_val)
+        delta_p = node.persistence - 0.95 # Growth from baseline
+        
+        print(f"#{node.id:<5} | {input_val:<10.4f} | {outcome:<10.4f} | {node.persistence:<15.4f} | +{delta_p:.6f}")
+        
+        # The outcome 'tows' the next node, but with signal decay (loss of likeness)
+        current_signal = outcome * 0.98 
+
+def run_long_chain_visualization():
+    """
+    Extends the simulation to 50 nodes to visualize the 'Signal Cliff'
+    vs the 'Structural Hardening'.
+    """
+    print("\n--- PHASE 2: LONG-CHAIN EVOLUTION (50 Nodes) ---")
+    
+    # Setup
+    chain_length = 50
+    nodes = [MiniSHR(id=i, persistence=0.95) for i in range(chain_length)]
+    signal = 0.8
+    decay_rate = 0.98
+    
+    signal_history = []
+    persistence_history = []
+    
+    for node in nodes:
+        outcome = node.ceo_loop(signal)
+        signal_history.append(outcome)
+        persistence_history.append(node.persistence)
+        
+        # Transmission loss
+        signal = outcome * decay_rate
+
+    # Visualization
+    fig, ax1 = plt.subplots(figsize=(10, 6))
+
+    color = 'tab:red'
+    ax1.set_xlabel('Node Chain Depth (Octaves)')
+    ax1.set_ylabel('Signal Magnitude (Energy)', color=color)
+    ax1.plot(signal_history, color=color, linewidth=2, label='Signal (Dissipation)')
+    ax1.tick_params(axis='y', labelcolor=color)
+    ax1.grid(True, alpha=0.3)
+
+    ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
+    color = 'tab:blue'
+    ax2.set_ylabel('Node Persistence (Structure)', color=color)  # we already handled the x-label with ax1
+    ax2.plot(persistence_history, color=color, linewidth=2, linestyle='--', label='Structure (Evolution)')
+    ax2.tick_params(axis='y', labelcolor=color)
+    
+    # Highlight the Crossing Point (The "Oasis" State)
+    # Ideally, structure rises as signal falls, preserving the *memory* of the signal
+    plt.title('The Oasis Dynamic: Signal Dissipation vs. Structural Hardening\n(The 0.0023 Factor)')
+    fig.tight_layout()
+    plt.savefig('mini_shr_evolution.png')
+    print("Long-chain visualization saved to 'mini_shr_evolution.png'")
+    plt.show()
+
+if __name__ == "__main__":
+    run_short_chain_audit()
+    run_long_chain_visualization()!/usr/bin/env python3
 """
 Validation tests for observer profiles.
 
