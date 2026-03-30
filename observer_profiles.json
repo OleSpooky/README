@@ -1,7 +1,7 @@
 {
   "title": "Observer Profiles for Scalar Modeling Simulation",
   "description": "Configuration profiles representing different vantage points and experimental perspectives for studying information persistence in networked systems",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "profiles": [
     {
       "name": "baseline_homogeneous",
@@ -24,14 +24,18 @@
           "theta_type": "uniform"
         },
         "simulation": {
-          "M": 1000,
+          "M": 2000,
           "T": 60,
           "threshold": 0.001,
           "continuous_source": false
         }
       },
       "expected_behavior": "Information decays uniformly from the source with no localized persistence enhancement",
-      "use_cases": ["control_experiment", "baseline_comparison", "teaching_example"]
+      "use_cases": [
+        "control_experiment",
+        "baseline_comparison",
+        "teaching_example"
+      ]
     },
     {
       "name": "single_pocket_weak",
@@ -61,14 +65,18 @@
           "theta_type": "uniform"
         },
         "simulation": {
-          "M": 1000,
+          "M": 2000,
           "T": 60,
           "threshold": 0.001,
           "continuous_source": false
         }
       },
       "expected_behavior": "Modest information persistence enhancement within pocket region",
-      "use_cases": ["pocket_discovery", "weak_coupling_effects", "threshold_studies"]
+      "use_cases": [
+        "pocket_discovery",
+        "weak_coupling_effects",
+        "threshold_studies"
+      ]
     },
     {
       "name": "single_pocket_strong",
@@ -98,14 +106,18 @@
           "theta_type": "uniform"
         },
         "simulation": {
-          "M": 1000,
+          "M": 2000,
           "T": 60,
           "threshold": 0.001,
           "continuous_source": false
         }
       },
       "expected_behavior": "Significant information persistence within pocket with sharp boundary effects",
-      "use_cases": ["strong_pocket_analysis", "boundary_detection", "contrast_studies"]
+      "use_cases": [
+        "strong_pocket_analysis",
+        "boundary_detection",
+        "contrast_studies"
+      ]
     },
     {
       "name": "dual_pocket_symmetric",
@@ -148,7 +160,11 @@
         }
       },
       "expected_behavior": "Information spreads bidirectionally with enhanced persistence in both pockets",
-      "use_cases": ["spatial_symmetry", "multi_scale_retention", "interference_patterns"]
+      "use_cases": [
+        "spatial_symmetry",
+        "multi_scale_retention",
+        "interference_patterns"
+      ]
     },
     {
       "name": "high_temperature_observer",
@@ -178,14 +194,18 @@
           "theta_type": "uniform"
         },
         "simulation": {
-          "M": 1000,
+          "M": 2000,
           "T": 60,
           "threshold": 0.001,
           "continuous_source": false
         }
       },
       "expected_behavior": "Rapid information decay even in strong pocket due to high noise",
-      "use_cases": ["noise_robustness", "temperature_scaling", "thermal_limits"]
+      "use_cases": [
+        "noise_robustness",
+        "temperature_scaling",
+        "thermal_limits"
+      ]
     },
     {
       "name": "low_temperature_observer",
@@ -215,14 +235,18 @@
           "theta_type": "uniform"
         },
         "simulation": {
-          "M": 1000,
+          "M": 2000,
           "T": 60,
           "threshold": 0.001,
           "continuous_source": false
         }
       },
       "expected_behavior": "Highly persistent information with sharp spatial transitions",
-      "use_cases": ["deterministic_limit", "phase_transitions", "crystallization_analogs"]
+      "use_cases": [
+        "deterministic_limit",
+        "phase_transitions",
+        "crystallization_analogs"
+      ]
     },
     {
       "name": "edge_source_observer",
@@ -252,14 +276,18 @@
           "theta_type": "uniform"
         },
         "simulation": {
-          "M": 1000,
+          "M": 2000,
           "T": 60,
           "threshold": 0.001,
           "continuous_source": false
         }
       },
       "expected_behavior": "Asymmetric information flow with directional bias toward interior",
-      "use_cases": ["boundary_effects", "asymmetric_propagation", "edge_initialization"]
+      "use_cases": [
+        "boundary_effects",
+        "asymmetric_propagation",
+        "edge_initialization"
+      ]
     },
     {
       "name": "continuous_source_observer",
@@ -289,14 +317,18 @@
           "theta_type": "uniform"
         },
         "simulation": {
-          "M": 1000,
+          "M": 2000,
           "T": 60,
           "threshold": 0.001,
           "continuous_source": true
         }
       },
       "expected_behavior": "Sustained information propagation with steady-state spatial profile",
-      "use_cases": ["steady_state_analysis", "continuous_driving", "non_equilibrium_flow"]
+      "use_cases": [
+        "steady_state_analysis",
+        "continuous_driving",
+        "non_equilibrium_flow"
+      ]
     },
     {
       "name": "large_scale_observer",
@@ -340,12 +372,16 @@
         "simulation": {
           "M": 5000,
           "T": 100,
-          "threshold": 0.0005,
+          "threshold": 0.001,
           "continuous_source": false
         }
       },
       "expected_behavior": "Hierarchical information landscape with multiple retention scales",
-      "use_cases": ["scaling_laws", "large_system_behavior", "multi_scale_analysis"]
+      "use_cases": [
+        "scaling_laws",
+        "large_system_behavior",
+        "multi_scale_analysis"
+      ]
     },
     {
       "name": "gradient_observer",
@@ -382,12 +418,16 @@
         }
       },
       "expected_behavior": "Smooth spatial variation in information persistence without sharp boundaries",
-      "use_cases": ["gradient_systems", "smooth_transitions", "environmental_gradients"]
+      "use_cases": [
+        "gradient_systems",
+        "smooth_transitions",
+        "environmental_gradients"
+      ]
     }
   ],
   "metadata": {
     "author": "Scalar Modeling Project",
-    "created": "2026-01-12",
+    "created": "2026-03-30",
     "purpose": "Provide standardized observer configurations for reproducible scalar modeling experiments",
     "notes": [
       "All profiles use the scalar_simulation.py engine",

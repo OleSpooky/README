@@ -1,4 +1,4 @@
-tests/validate_profiles.py#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Validation tests for observer profiles.
 
@@ -114,6 +114,9 @@ def validate_profile_values(profile):
 
     if M < 1:
         return False, f"M={M} is too small (minimum 1)"
+
+    if M < 20 * N:
+        print(f"  [WARN] M={M} may be too small for N={N}. Recommended M >= {20 * N}")
 
     if T < 1:
         return False, f"T={T} is too small (minimum 1)"
